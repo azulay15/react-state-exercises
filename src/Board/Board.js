@@ -24,7 +24,7 @@ class Board extends Component {
 			boardNumber
 		})
 	}
-
+ 
 
 	render() {
 		return (
