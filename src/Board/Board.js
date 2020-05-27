@@ -10,14 +10,45 @@ import './Board.css';
  */
 
 class Board extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			boardNumber: -1
+		}
+
+	}
+
+	changeBorderColor(boardNumber) {
+		this.setState({
+			boardNumber
+		})
+	}
+
+
 	render() {
 		return (
 			<div className="Board">
 				<h1>Choose board:</h1>
 				<div className="boards">
-					<div className="Board-option">1</div>
-					<div className="Board-option">2</div>
-					<div className="Board-option">3</div>
+					<div 
+						className="Board-option" 
+						style={{borderColor: this.state.boardNumber === 0 ? 'red' : 'blue'}}
+						onClick={this.changeBorderColor.bind(this, 0)}>
+						1
+					</div>
+					<div 
+						className="Board-option" 
+						style={{borderColor: this.state.boardNumber === 1 ? 'red' : 'blue'}}
+						onClick={this.changeBorderColor.bind(this, 1)}>
+						2
+					</div>
+					<div 
+						className="Board-option" 
+						style={{borderColor: this.state.boardNumber === 2 ? 'red' : 'blue'}} 
+						onClick={this.changeBorderColor.bind(this, 2)}>
+						3
+					</div>
 				</div>
 			</div>
 		);
